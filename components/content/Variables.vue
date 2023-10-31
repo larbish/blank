@@ -5,7 +5,7 @@
   </template>
   
   <script setup lang="ts">
-  const { variables } = useAppConfig()
+  const { global: { variables } } = useAppConfig()
   
   const props = defineProps({
     id: {
@@ -15,15 +15,15 @@
   })
   
   const result = computed(() => {
-      let res = variables[props.id]
+      let res = (variables as any)[props.id]
       // Check if variables contains ${} syntax
       if (res.includes('${')) {   
           // Replace ${} with the value from the variables object
           const regex = /\${(.*?)}/g
           const matches = res.match(regex)
-          matches?.forEach((match) => {
+          matches?.forEach((match: any) => {
               const key = match.replace('${', '').replace('}', '')
-              res = res.replace(match, variables[key])
+              res = res.replace(match, (variables as any)[key])
           })
       }
   
