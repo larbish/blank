@@ -4,7 +4,8 @@ import { field } from '@nuxthq/studio/theme'
 export default defineNuxtSchema({
   appConfig: {
     /**
-     * Global configuration
+     * @title Global
+     * @description Global configuration
      * @studioIcon i-mdi-earth
      */
     global: {
