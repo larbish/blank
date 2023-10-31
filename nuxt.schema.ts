@@ -3,12 +3,12 @@ import { field } from '@nuxthq/studio/theme'
 
 export default defineNuxtSchema({
   appConfig: {
-    /**
-     * @title Global
-     * @description Global configuration
-     * @studioIcon i-mdi-earth
-     */
     global: {
+      $schema: {
+        title: 'Global',
+        description: 'Global configuration',
+        tags: ['@studioIcon i-mdi-earth']
+       },
       variables: field({
         type: 'object',
         title: 'Variables',
